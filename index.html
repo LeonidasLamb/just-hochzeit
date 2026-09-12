@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#0d1230">
+<title>Für dich</title>
+<meta name="description" content="Ein Geschenk.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>">
+<link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<main id="app">
+
+  <!-- ══════════ 1. BRIEF (Startseite) ══════════ -->
+  <section class="screen is-active" id="screen-danke">
+    <div class="card card--center">
+      <p class="eyebrow">Für dich</p>
+      <h1 class="title">Danke.</h1>
+
+      <figure class="danke-foto" id="danke-foto" hidden>
+        <img id="foto-danke" alt="Wir beide auf deiner Hochzeit">
+      </figure>
+
+      <div class="brief" id="brief"></div>
+
+      <button class="btn btn--primary btn--big" id="btn-zum-geschenk">
+        Jetzt weiter zum Geschenk <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════ 2. INTRO ══════════ -->
+  <section class="screen" id="screen-intro">
+    <div class="card card--center">
+      <p class="eyebrow">Institut für angewandte Lebensfreude</p>
+      <h1 class="title">Der große<br>Charaktertest</h1>
+
+      <figure class="akte" id="akte-start" hidden>
+        <img id="foto-start" alt="Archivaufnahme">
+        <figcaption>Archivaufnahme aus der Probandenakte.<br>Links der Proband, rechts der Gutachter.</figcaption>
+      </figure>
+
+      <p class="lead" id="intro-proband"></p>
+      <p class="lead">
+        <strong><span id="intro-anzahl">9</span> Fragen.</strong> Keine davon ist
+        richtig oder falsch, aber alle sind wissenschaftlich bindend.
+      </p>
+      <p class="muted small">Bitte spontan antworten.<br>Längeres Nachdenken verfälscht das Ergebnis. 🔬</p>
+      <button class="btn btn--primary btn--big" id="btn-start">Test starten <span class="arrow">→</span></button>
+      <p class="tiny muted">Dauer ca. 60 Sekunden. Auswertung durch Dr. Kollett.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2. QUIZ ══════════ -->
+  <section class="screen" id="screen-quiz">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="q-counter">Modul 1 von 9</span>
+        <span id="q-percent">0 %</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+
+    <div class="card card--quiz" id="quiz-card">
+      <p class="eyebrow" id="q-category">Thermoregulation</p>
+      <h2 class="question" id="q-text">Frage</h2>
+      <div class="options" id="q-options"></div>
+      <button class="btn-back" id="btn-back" hidden>← Zurück</button>
+    </div>
+  </section>
+
+  <!-- ══════════ 3. AUSWERTUNG ══════════ -->
+  <section class="screen" id="screen-calc">
+    <div class="card card--center">
+      <div class="spinner"></div>
+      <h2 class="title-sm">Auswertung läuft…</h2>
+      <ul class="calc-steps" id="calc-steps">
+        <li>Datensatz wird normalisiert</li>
+        <li>Abgleich mit 4.812 Vergleichsprofilen</li>
+        <li>Dr. Kollett sichtet die Ergebnisse</li>
+        <li>Gutachten wird unterzeichnet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ 4. GUTACHTEN ══════════ -->
+  <section class="screen" id="screen-profile">
+    <div class="card card--center">
+      <p class="eyebrow">Gutachten, Erhebung abgeschlossen</p>
+      <div class="result-flag" id="profile-emoji">🕶️</div>
+      <p class="lead">Dein Persönlichkeitstyp lautet:</p>
+      <h1 class="destination destination--type" id="profile-type">Der Sonnenanbeter</h1>
+      <p class="result-sub" id="profile-text"></p>
+
+      <div class="match">
+        <div class="match-labels">
+          <span>Übereinstimmung mit deinem Typ</span>
+          <span id="match-value">...</span>
+        </div>
+        <div class="match-track match-track--solo"><div class="match-fill" id="match-fill"></div></div>
+      </div>
+
+      <div class="befund" id="befund"></div>
+
+      <button class="btn btn--ghost btn--small" id="btn-why">Wie kommt das zustande? ▾</button>
+      <div class="why" id="why-box" hidden></div>
+
+      <p class="signatur">gez. Dr. Kollett<br><span>Institut für angewandte Lebensfreude</span></p>
+
+      <button class="btn btn--primary btn--big" id="btn-to-reveal">Gutachten abschließen <span class="arrow">→</span></button>
+    </div>
+  </section>
+
+  <!-- ══════════ 5. AUFLÖSUNG ══════════ -->
+  <section class="screen" id="screen-result">
+    <div class="card card--center card--result">
+      <p class="eyebrow eyebrow--gold">Verordnete Maßnahme</p>
+      <div class="result-flag" id="result-emoji">🏝️</div>
+      <h1 class="title">Herzlichen<br>Glückwunsch!</h1>
+      <p class="lead">
+        Das Gutachten ist eindeutig. Dr. Kollett verordnet dir:
+      </p>
+      <div class="destination" id="result-destination">Mallorca</div>
+      <p class="lead"><strong>Du hast eine Reise gewonnen.</strong></p>
+      <p class="result-sub" id="result-tagline"></p>
+    </div>
+
+    <div class="bonus-bar" id="bonus-bar">
+      <div class="bonus-bar__glow"></div>
+      <div class="bonus-bar__inner">
+        <div class="bonus-bar__icon">⚽</div>
+        <div class="bonus-bar__text">
+          <strong>Elfmeter für dich!</strong>
+          <span>Triff und sichere dir einen Extra-Bonus</span>
+        </div>
+        <button class="btn btn--gold btn--small" id="btn-to-penalty">Antreten</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 6. ELFMETERSCHIESSEN ══════════ -->
+  <section class="screen" id="screen-penalty">
+    <div class="card card--center card--penalty">
+      <p class="eyebrow eyebrow--gold">Exklusiver Bonus</p>
+      <h2 class="title-sm">Elfmeterschießen</h2>
+      <p class="muted small">Triff, und die Mystery Box gehört dir.</p>
+
+      <div class="pitch is-ready" id="pitch">
+        <div class="goal">
+          <div class="goal__net" id="net"></div>
+          <div class="goal__frame"></div>
+          <div class="keeper" id="keeper"><span class="keeper__glove">🧤</span></div>
+          <div class="targets">
+            <button class="target" data-ecke="links"  aria-label="Linke Ecke"><span>◎</span></button>
+            <button class="target" data-ecke="mitte"  aria-label="Mitte"><span>◎</span></button>
+            <button class="target" data-ecke="rechts" aria-label="Rechte Ecke"><span>◎</span></button>
+          </div>
+        </div>
+        <div class="spot"></div>
+        <div class="ball" id="ball">⚽</div>
+      </div>
+
+      <p class="penalty-hint" id="penalty-hint">Tippe die Ecke an, in die du schießen willst</p>
+      <p class="status-line" id="penalty-status">&nbsp;</p>
+      <p class="tiny muted" id="penalty-counter">1 Versuch</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7. GEWINN ══════════ -->
+  <section class="screen" id="screen-final">
+    <div class="card card--center">
+      <div class="result-flag">🎉</div>
+      <p class="eyebrow eyebrow--gold">Mystery Box geöffnet</p>
+      <h1 class="title">Du hast gewonnen!</h1>
+      <div class="prize">
+        <div class="prize__badge">ALL&nbsp;INCLUSIVE</div>
+        <p class="prize__text">
+          Zu deiner Reise nach <strong id="final-destination">Mallorca</strong> gibt es
+          jetzt auch noch das komplette <strong>All-Inclusive-Paket</strong> dazu.
+        </p>
+      </div>
+      <p class="lead">Melde dich jetzt bei deinem Ansprechpartner für alle weiteren Details:</p>
+
+      <div class="agent">
+        <img class="agent__photo" id="agent-photo" alt="Dein Ansprechpartner">
+        <div class="agent__fallback" id="agent-fallback">🧳</div>
+        <div class="agent__name" id="agent-name">Leon</div>
+        <div class="agent__role" id="agent-role">Reisebüro „Bester Kumpel“, 24/7 erreichbar</div>
+      </div>
+
+      <a class="btn btn--whatsapp btn--big btn-wa" href="#" target="_blank" rel="noopener">
+        <span class="wa-icon">💬</span> Jetzt bei WhatsApp melden
+      </a>
+      <p class="tiny muted">Ich freu mich auf dich. ❤️</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ MODAL: Wiederholung ══════════ -->
+<div class="modal-backdrop" id="modal-secondchance" hidden>
+  <div class="modal">
+    <div class="modal__icon">🤫</div>
+    <p class="modal__eyebrow">Der Schiedsrichter pfeift</p>
+    <h3 class="modal__title">Nur weil du es bist…</h3>
+    <p class="modal__text">
+      Der Torwart war zu früh von der Linie.<br>
+      <strong>Wiederholung!</strong> Aller guten Dinge sind drei.
+    </p>
+    <button class="btn btn--gold btn--big" id="btn-lastchance">Nochmal antreten</button>
+  </div>
+</div>
+
+<!-- ══════════ MODAL: Mystery Box ══════════ -->
+<div class="modal-backdrop modal-backdrop--gold" id="modal-mystery" hidden>
+  <div class="modal modal--box">
+    <div class="mystery-box" id="mystery-box">
+      <div class="mystery-box__lid">🎀</div>
+      <div class="mystery-box__body">🎁</div>
+    </div>
+    <p class="modal__eyebrow" id="mystery-hint">Antippen zum Öffnen</p>
+  </div>
+</div>
+
+<script src="app.js?v=7"></script>
+</body>
+</html>
