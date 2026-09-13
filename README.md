@@ -69,12 +69,36 @@ Ganz oben in **`app.js`** im Block `CONFIG`:
 | `whatsappText` | die Nachricht, die in seinem WhatsApp vorausgefüllt ist |
 | `gutachter` | aktuell „Dr. Collet" |
 | `deinName` | dein Name unter dem Brief |
+| `ticket` | die Angaben auf dem Boarding Pass, siehe unten |
 | `ergebnisFestlegen` | siehe unten |
 
 ### Dein Brief auf der Startseite
 
 Steht direkt darunter in `DANKE_TEXT`, ein Absatz pro Zeile. Lies ihn
 auf jeden Fall nochmal durch und schreib ihn um, wie du es sagen würdest.
+
+### Das Flugticket
+
+Auf der Gewinnseite liegt ein Boarding Pass, der sich automatisch nach dem
+Ergebnis richtet: Mallorca wird zu **PMI, Palma de Mallorca**, Irland zu
+**DUB, Dublin**. Passagiername und Ziel füllt die Seite selbst aus.
+
+Alles andere stellst du im Block `ticket` in `assets/app.js` ein:
+
+```js
+ticket: {
+  airline:     "COLLET AIR",
+  klasse:      "FIRST CLASS",
+  flugnummer:  "CL 001",
+  sitzplatz:   "1",
+  datum:       "[ legen wir zusammen fest ]",
+  abflugCode:  "DE",            // z.B. FRA, DUS, STR
+  abflugOrt:   "Deutschland",
+},
+```
+
+Sobald ihr ein Datum habt, trägst du es einfach statt der eckigen Klammer
+ein. Den Abflugort kannst du auf euren Flughafen ändern.
 
 ### Wenn die Reise schon gebucht ist
 

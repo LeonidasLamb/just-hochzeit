@@ -7,7 +7,7 @@
 <title>Für dich</title>
 <meta name="description" content="Ein Geschenk.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>">
-<link rel="stylesheet" href="assets/styles.css?v=10">
+<link rel="stylesheet" href="assets/styles.css?v=11">
 </head>
 <body>
 
@@ -183,6 +183,41 @@
           jetzt auch noch das komplette <strong>All-Inclusive-Paket</strong> dazu.
         </p>
       </div>
+      <!-- Boarding Pass -->
+      <div class="ticket">
+        <div class="ticket__head">
+          <span class="ticket__airline">✈︎ <strong id="ticket-airline">COLLET AIR</strong></span>
+          <span class="ticket__class" id="ticket-klasse">FIRST CLASS</span>
+        </div>
+
+        <div class="ticket__route">
+          <div class="ticket__city">
+            <span class="ticket__code" id="ticket-von-code">DE</span>
+            <span class="ticket__city-name" id="ticket-von-ort">Deutschland</span>
+          </div>
+          <div class="ticket__plane">
+            <span class="ticket__line"></span>✈︎<span class="ticket__line"></span>
+          </div>
+          <div class="ticket__city ticket__city--right">
+            <span class="ticket__code" id="ticket-nach-code">PMI</span>
+            <span class="ticket__city-name" id="ticket-nach-ort">Mallorca</span>
+          </div>
+        </div>
+
+        <div class="ticket__perf"></div>
+
+        <dl class="ticket__grid">
+          <div><dt>Passagier</dt><dd id="ticket-passagier">Justin</dd></div>
+          <div><dt>Flug</dt><dd id="ticket-flug">CL 001</dd></div>
+          <div><dt>Datum</dt><dd class="ticket__offen" id="ticket-datum">[ legen wir zusammen fest ]</dd></div>
+          <div><dt>Sitzplatz</dt><dd id="ticket-sitz">1</dd></div>
+          <div><dt>Verpflegung</dt><dd>All Inclusive</dd></div>
+          <div><dt>Status</dt><dd class="ticket__ok">reserviert ✓</dd></div>
+        </dl>
+
+        <div class="ticket__barcode" id="ticket-barcode"></div>
+      </div>
+
       <p class="lead">Melde dich jetzt bei deinem Ansprechpartner für alle weiteren Details:</p>
 
       <div class="agent">
@@ -226,6 +261,6 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=10"></script>
+<script src="assets/app.js?v=11"></script>
 </body>
 </html>
