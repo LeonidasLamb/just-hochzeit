@@ -10,23 +10,34 @@ Reiseziel gab.
 
 ---
 
-## ⚠️ Zuerst: die drei Fotos
+## Der Ordner
 
-Leg diese drei Dateien in **denselben Ordner** wie `index.html`:
+```
+hochzeitsgeschenk/
+├── index.html              ← die Seite selbst, muss hier oben bleiben
+├── assets/
+│   ├── app.js              ← Fragen, Punkte, Texte, Ablauf
+│   ├── styles.css          ← das komplette Design
+│   └── bilder/
+│       ├── umarmung.png    ← Startseite, über deinem Brief
+│       ├── pool.png        ← im Test, als „Archivaufnahme"
+│       └── leon.png        ← am Ende, als Ansprechpartner
+├── README.md               ← diese Anleitung, geht nicht online
+└── .vercelignore           ← sagt Vercel, was es weglassen soll
+```
 
-| Dateiname | Welches Bild | Wo es erscheint |
-|---|---|---|
-| `bild-umarmung.png` | die Umarmung | **Startseite**, über deinem Brief |
-| `bild-pool.png` | ihr beide am Pool | Charaktertest, als „Archivaufnahme aus der Probandenakte" |
-| `bild-berater.png` | du allein | Gewinnseite, als Ansprechpartner Dr. Kollett |
+**Anfassen musst du eigentlich nur `assets/app.js`.** Ganz oben stehen dort
+alle Einstellungen, darunter die Fragen und dein Brief.
 
-Die Namen müssen **exakt** so geschrieben sein, inklusive Endung. Fehlt ein
-Bild oder heißt es anders, wird es einfach ausgeblendet, kaputt geht nichts.
-Willst du andere Dateien verwenden, trag die Namen oben in `app.js` bei
-`bildUmarmung`, `bildPool` und `bildLeon` ein.
+### Bilder austauschen
 
-Die Bilder dürfen ruhig hochkant sein, sie werden automatisch passend
-beschnitten.
+Neues Bild einfach unter demselben Namen nach `assets/bilder/` legen, fertig.
+Heißt deine Datei anders oder ist es ein `.jpg`, trag den Namen oben in
+`assets/app.js` bei `bildUmarmung`, `bildPool` oder `bildLeon` ein.
+
+Fehlt ein Bild, wird die Stelle still ausgeblendet. Die Seite sieht dann
+zwar leerer aus, geht aber nicht kaputt. Hochkant-Bilder sind kein Problem,
+sie werden automatisch passend beschnitten.
 
 ## Der Ablauf
 
