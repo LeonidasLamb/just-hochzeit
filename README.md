@@ -46,9 +46,9 @@ sie werden automatisch passend beschnitten.
 | 1 | **Brief** | Umarmungsfoto, dein persönlicher Text, Button „Jetzt weiter zum Geschenk" |
 | 2 | Intro | „Institut für angewandte Lebensfreude", Poolfoto, „Proband: Justin" |
 | 3 | Quiz | 10 Module, je 2 Antworten |
-| 4 | Auswertung | Fake-Ladebalken, „Dr. Kollett sichtet die Ergebnisse" |
-| 5 | **Gutachten** | Persönlichkeitstyp, Übereinstimmung in Prozent, Nebenbefund zur Verpeiltheit, Unterschrift von Dr. Kollett |
-| 6 | **Auflösung** | „Dr. Kollett verordnet dir: **Mallorca**", Konfetti |
+| 4 | Auswertung | Fake-Ladebalken, „Dr. Collet sichtet die Ergebnisse" |
+| 5 | **Gutachten** | Persönlichkeitstyp, Übereinstimmung in Prozent, Nebenbefund zur Verpeiltheit, Unterschrift von Dr. Collet |
+| 6 | **Auflösung** | „Dr. Collet verordnet dir: **Mallorca**", Konfetti |
 | 7 | Elfmeter | Bonus-Banner, Tor, Torwart, drei Ecken |
 | 8 | Gewinn | All-Inclusive-Paket, dein Foto, WhatsApp-Button. **Ende.** |
 
@@ -67,7 +67,7 @@ Ganz oben in **`app.js`** im Block `CONFIG`:
 | `freundName` | steht als „Proband" im Intro und als Anrede im Brief |
 | `whatsappNummer` | aktuell `491754421584` |
 | `whatsappText` | die Nachricht, die in seinem WhatsApp vorausgefüllt ist |
-| `gutachter` | aktuell „Dr. Kollett" |
+| `gutachter` | aktuell „Dr. Collet" |
 | `deinName` | dein Name unter dem Brief |
 | `ergebnisFestlegen` | siehe unten |
 

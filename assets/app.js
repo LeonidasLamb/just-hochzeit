@@ -16,9 +16,9 @@ const CONFIG = {
   whatsappText:   "Alter. Ich hab gerade die Reise UND das All-Inclusive-Paket gewonnen 🎉",
 
   // Dein Name als Gutachter, Ansprechpartner und Absender
-  gutachter:  "Dr. Kollett",
+  gutachter:  "Dr. Collet",
   deinName:   "Leon",
-  deineRolle: "alias Dr. Kollett. Gutachter, Reiseberater, bester Kumpel.",
+  deineRolle: "alias Dr. Collet. Gutachter, Reiseberater, bester Kumpel.",
 
   // ── BILDER ───────────────────────────────────────────────
   // Einfach die drei Dateien in diesen Ordner legen, nach Motiv benannt.
