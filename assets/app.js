@@ -27,6 +27,17 @@ const CONFIG = {
   bildPool:     "assets/bilder/pool.png",      // Charaktertest, als Archivaufnahme
   bildLeon:     "assets/bilder/leon.png",
 
+  // ── DAS FLUGTICKET auf der Gewinnseite ───────────────────
+  ticket: {
+    airline:     "COLLET AIR",
+    klasse:      "FIRST CLASS",
+    flugnummer:  "CL 001",
+    sitzplatz:   "1",
+    datum:       "[ legen wir zusammen fest ]",
+    abflugCode:  "DE",            // z.B. FRA, DUS, STR
+    abflugOrt:   "Deutschland",
+  },
+
   // ⚠️ Falls die Reise schon gebucht ist: "mallorca" oder "irland".
   //    Der Test läuft normal durch, das Ergebnis steht aber fest.
   //    null = ehrliche Auswertung nach Punkten
@@ -60,6 +71,8 @@ const ZIELE = {
   mallorca: {
     name:    "Mallorca",
     emoji:   "🏝️",
+    code:    "PMI",                  // Flughafen fürs Ticket
+    flugziel:"Palma de Mallorca",
     tagline: "Sonne, Meer und keine einzige Regenjacke im Koffer.",
 
     typ:       "Der Sonnen-Optimierer",
@@ -71,6 +84,8 @@ const ZIELE = {
   irland: {
     name:    "Irland",
     emoji:   "🍀",
+    code:    "DUB",                  // Flughafen fürs Ticket
+    flugziel:"Dublin, Irland",
     tagline: "Grüne Klippen, dunkles Bier und Kamin­feuer am Abend.",
 
     typ:       "Der Wetterfeste",
@@ -367,6 +382,7 @@ function zeigeErgebnis(){
   $("#result-destination").textContent = ziel.name;
   $("#result-tagline").textContent     = ziel.tagline;
   $("#final-destination").textContent  = ziel.name;
+  baueTicket(ziel);
 
   zeigeScreen("result");
   konfetti(150);
@@ -379,6 +395,32 @@ function zeigeErgebnis(){
 }
 
 $("#btn-to-reveal").addEventListener("click", zeigeErgebnis);
+
+/* ═══════════ BOARDING PASS auf der Gewinnseite ═══════════ */
+function baueTicket(ziel){
+  const t = CONFIG.ticket;
+
+  $("#ticket-airline").textContent   = t.airline;
+  $("#ticket-klasse").textContent    = t.klasse;
+  $("#ticket-von-code").textContent  = t.abflugCode;
+  $("#ticket-von-ort").textContent   = t.abflugOrt;
+  $("#ticket-nach-code").textContent = ziel.code;
+  $("#ticket-nach-ort").textContent  = ziel.flugziel;
+  $("#ticket-passagier").textContent = CONFIG.freundName || "Passagier";
+  $("#ticket-flug").textContent      = t.flugnummer;
+  $("#ticket-datum").textContent     = t.datum;
+  $("#ticket-sitz").textContent      = t.sitzplatz;
+
+  // Barcode aus unterschiedlich breiten Strichen
+  const code = $("#ticket-barcode");
+  if (!code.childElementCount){
+    let html = "";
+    for (let n = 0; n < 46; n++){
+      html += "<i style='width:" + (1 + Math.floor(Math.random() * 3)) + "px'></i>";
+    }
+    code.innerHTML = html;
+  }
+}
 
 function baueWarumBox(){
   const zielKey = state.ziel;

@@ -484,3 +484,87 @@ body{
   margin-top:20px !important; font-size:17px !important; font-weight:700;
   color:var(--gold) !important;
 }
+
+/* ── Boarding Pass ───────────────────────── */
+.ticket{
+  margin:22px 0 24px; border-radius:16px; overflow:hidden; text-align:left;
+  background:linear-gradient(165deg,#fffdf6 0%,#f7f1e3 100%);
+  color:#1c1e2c;
+  box-shadow:0 18px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.14);
+  font-feature-settings:"tnum";
+}
+
+.ticket__head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px;
+  background:linear-gradient(135deg,#20233a,#2e2a4d);
+  color:#fff;
+}
+.ticket__airline{ font-size:13px; letter-spacing:.14em; display:flex; align-items:center; gap:7px; }
+.ticket__airline strong{ font-weight:900; }
+.ticket__class{
+  font-size:10px; font-weight:800; letter-spacing:.16em;
+  padding:5px 9px; border-radius:99px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:#2a1d00;
+}
+
+.ticket__route{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:20px 16px 16px;
+}
+.ticket__city{ display:flex; flex-direction:column; min-width:0; }
+.ticket__city--right{ text-align:right; align-items:flex-end; }
+.ticket__code{
+  font-size:30px; font-weight:900; line-height:1; letter-spacing:-.01em; color:#1c1e2c;
+}
+.ticket__city-name{
+  font-size:11px; color:#6b6880; margin-top:5px;
+  letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  max-width:110px;
+}
+.ticket__plane{
+  display:flex; align-items:center; gap:5px; color:#b3a274; font-size:15px; flex:1;
+}
+.ticket__line{
+  height:1px; flex:1; min-width:14px;
+  background:repeating-linear-gradient(90deg,#c9bfa4 0 4px,transparent 4px 8px);
+}
+
+/* Perforation mit Stanzlöchern */
+.ticket__perf{
+  position:relative; height:1px; margin:0 14px;
+  background:repeating-linear-gradient(90deg,#cfc6b0 0 6px,transparent 6px 12px);
+}
+.ticket__perf::before,
+.ticket__perf::after{
+  content:""; position:absolute; top:-9px; width:18px; height:18px;
+  border-radius:50%; background:#151a35;
+}
+.ticket__perf::before{ left:-23px; }
+.ticket__perf::after{ right:-23px; }
+
+.ticket__grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:14px 12px;
+  margin:0; padding:18px 16px 14px;
+}
+.ticket__grid div{ min-width:0; }
+.ticket__grid dt{
+  font-size:9.5px; font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; color:#8d8aa0; margin-bottom:3px;
+}
+.ticket__grid dd{
+  margin:0; font-size:15px; font-weight:750; color:#1c1e2c;
+  overflow-wrap:anywhere;
+}
+.ticket__offen{ font-size:12.5px !important; font-weight:650 !important; color:#7a6a3f !important; }
+.ticket__ok{ color:#1f8b52 !important; }
+
+.ticket__barcode{
+  display:flex; align-items:flex-end; gap:2px; height:42px;
+  padding:0 16px 16px; overflow:hidden;
+}
+.ticket__barcode i{
+  display:block; height:100%; background:#1c1e2c; border-radius:1px;
+}
+.ticket__barcode i:nth-child(3n){ height:78%; }
+.ticket__barcode i:nth-child(5n){ height:90%; }
